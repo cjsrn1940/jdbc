@@ -31,7 +31,7 @@ public class BookApp {
 		AuthorVo iAuthorVo_02 = new AuthorVo("박경리", "경상남도 통영");
 		authorDao.authorInsert(iAuthorVo_02);
 		
-		AuthorVo iAuthorVo_03 = new AuthorVo("유시민", "17대 국회의원");
+		AuthorVo iAuthorVo_03 = new AuthorVo("이고잉", "가명");
 		authorDao.authorInsert(iAuthorVo_03);
 		
 		AuthorVo iAuthorVo_04 = new AuthorVo("기안84", "기안동에서 산 84년생");
@@ -54,7 +54,7 @@ public class BookApp {
 		BookVo iBookVo_03 = new BookVo("토지", "마로니에북스", "2012-08-15", 2);
 		bookDao.bookInsert(iBookVo_03);
 		
-		BookVo iBookVo_04 = new BookVo("유시민의 글쓰기 특강", "생각의길", "2015-04-01", 3);
+		BookVo iBookVo_04 = new BookVo("자바프로그래밍 입문", "위키북스", "2015-04-01", 3);
 		bookDao.bookInsert(iBookVo_04);
 		
 		BookVo iBookVo_05 = new BookVo("패션왕", "중앙북스(books)", "2012-02-22", 4);
