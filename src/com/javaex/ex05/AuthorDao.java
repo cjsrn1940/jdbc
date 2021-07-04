@@ -1,6 +1,6 @@
 /* 메소드 파라미터를 Vo사용 */
 
-package com.javaex.ex04;
+package com.javaex.ex05;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -38,7 +38,6 @@ public class AuthorDao {
 			
 			// 2. Connection 얻어오기
 			conn = DriverManager.getConnection(url, id, pw);
-			System.out.println("접속성공");
 			
 		} catch (ClassNotFoundException e) {
 			System.out.println("error: 드라이버 로딩 실패 - " + e);
@@ -66,7 +65,68 @@ public class AuthorDao {
 		}
 	}
 	
+	//작가 테이블 만들기
+	public void authorTable() {
+		
+		this.getConnection();
+		
+		try {
+			
+			// 3. SQL문 준비 / 바인딩 / 실행
+			String query = "";
+			query += " create table author( ";
+			query += "    author_id number(5), ";
+			query += "    author_name varchar2(10), ";
+			query += "    author_desc varchar2(50), ";
+			query += "    primary key(author_id) ";
+			query += " ) ";
+			
+			pstmt = conn.prepareStatement(query);
+			
+			pstmt.executeUpdate();
+			
+			// 4.결과처리
+			System.out.println("작가테이블 생성");
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		this.close();
+		
+	}
 	
+	//시퀀스 생성
+	public void authorSeq() {
+		
+		this.getConnection();
+		
+		try {
+			
+			// 3. SQL문 준비 / 바인딩 / 실행
+			String query = "";
+			query += " create sequence seq_author_id ";
+			query += " increment by 1 ";
+			query += " start with 1 ";
+			query += " nocache ";
+			
+			pstmt = conn.prepareStatement(query);
+			
+			pstmt.executeUpdate();
+			
+			// 4.결과처리
+			System.out.println("작가테이블 시퀀스 생성");
+
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		this.close();
+	}
+		
+		
 	
 	
 	//작가 삭제하기
